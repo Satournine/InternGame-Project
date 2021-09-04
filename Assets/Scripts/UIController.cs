@@ -8,7 +8,7 @@ public class UIController : MonoBehaviour
 {
     Player player;
     Text distanceText;
-
+    GameObject tutorial;
     GameObject gameOver;
     Text distanceFinal;
     // Start is called before the first frame update
@@ -19,7 +19,7 @@ public class UIController : MonoBehaviour
         distanceFinal = GameObject.Find("Distance").GetComponent<Text>();
         gameOver = GameObject.Find("Game Over");
         gameOver.SetActive(false);
-
+        tutorial = GameObject.Find("Tutorial");
 
     }
 
@@ -34,6 +34,11 @@ public class UIController : MonoBehaviour
             Debug.Log(player.isDead);
             gameOver.SetActive(true);
             distanceFinal.text = distance + " m";
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            tutorial.SetActive(false);
         }
     }
 
